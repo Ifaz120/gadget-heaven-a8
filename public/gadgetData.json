@@ -1,0 +1,222 @@
+[
+  {
+    "product_id": 1,
+    "product_title": "MacBook Pro 14",
+    "product_image": "https://i.ibb.co.com/DPqYf2Mn/f0135a95932dc54605d8f043d8b28ce7.jpg",
+    "category": "laptop",
+    "price": "$1999",
+    "description": "Apple MacBook Pro with M1 Pro chip, 14-inch Liquid Retina XDR display.",
+    "specification": [
+      "Apple M1 Pro chip",
+      "16GB RAM",
+      "512GB SSD",
+      "14-inch Retina display"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "product_id": 2,
+    "product_title": "Dell XPS 13",
+    "product_image": "https://i.ibb.co.com/RTc5kKBM/dell-xps13.jpg",
+    "category": "laptop",
+    "price": "$1299",
+    "description": "Compact and powerful Dell XPS 13 with InfinityEdge display.",
+    "specification": [
+      "Intel i7 12th Gen",
+      "16GB RAM",
+      "512GB SSD",
+      "13.4-inch FHD+ display"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "product_id": 3,
+    "product_title": "HP Spectre x360",
+    "product_image": "https://i.ibb.co.com/PzV3fk4J/HP-Spectre-x360.jpg",
+    "category": "laptop",
+    "price": "$1399",
+    "description": "Convertible 2-in-1 laptop with OLED touch display and premium design.",
+    "specification": [
+      "Intel i7 12th Gen",
+      "16GB RAM",
+      "1TB SSD",
+      "13.5-inch OLED Touch Display"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+  {
+    "product_id": 4,
+    "product_title": "Lenovo ThinkPad X1 Carbon",
+    "product_image": "https://i.ibb.co.com/mCfMskyP/Lenovo-Think-Pad-X1-Carbon.jpg",
+    "category": "laptop",
+    "price": "$1599",
+    "description": "Business laptop with lightweight carbon-fiber design.",
+    "specification": [
+      "Intel i7 12th Gen",
+      "16GB RAM",
+      "512GB SSD",
+      "14-inch FHD+ Display"
+    ],
+    "availability": false,
+    "rating": 4.8
+  },
+  {
+    "product_id": 5,
+    "product_title": "Asus ROG Zephyrus G14",
+    "product_image": "https://i.ibb.co.com/4ZptZLDv/Asus-ROG-Zephyrus-G14.jpg",
+    "category": "laptop",
+    "price": "$1499",
+    "description": "Gaming laptop with powerful AMD Ryzen processor and RTX graphics.",
+    "specification": [
+      "AMD Ryzen 9",
+      "16GB RAM",
+      "1TB SSD",
+      "RTX 3060 GPU"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "product_id": 6,
+    "product_title": "Acer Swift 3",
+    "product_image": "https://i.ibb.co.com/0jbq3v6x/Acer-Swift-3.jpg",
+    "category": "laptop",
+    "price": "$899",
+    "description": "Lightweight ultrabook with long battery life.",
+    "specification": [
+      "Intel i5 12th Gen",
+      "8GB RAM",
+      "512GB SSD",
+      "14-inch FHD Display"
+    ],
+    "availability": true,
+    "rating": 4.5
+  },
+  {
+    "product_id": 7,
+    "product_title": "iPhone 14 Pro",
+    "product_image": "https://i.ibb.co.com/Q7JFHQSb/i-Phone-14-Pro.jpg",
+    "category": "phone",
+    "price": "$999",
+    "description": "Apple’s latest iPhone with Dynamic Island and A16 Bionic chip.",
+    "specification": [
+      "A16 Bionic",
+      "6.1-inch OLED",
+      "128GB Storage",
+      "48MP Camera"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "product_id": 8,
+    "product_title": "Samsung Galaxy S23 Ultra",
+    "product_image": "https://i.ibb.co.com/yFzdFJMS/Samsung-Galaxy-S23-Ultra.jpg",
+    "category": "phone",
+    "price": "$1199",
+    "description": "Samsung flagship with 200MP camera and S-Pen support.",
+    "specification": [
+      "Snapdragon 8 Gen 2",
+      "6.8-inch AMOLED",
+      "256GB Storage",
+      "200MP Camera"
+    ],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "product_id": 9,
+    "product_title": "Google Pixel 7 Pro",
+    "product_image": "https://i.ibb.co.com/chmDNzTr/Google-Pixel-7-Pro.jpg",
+    "category": "phone",
+    "price": "$899",
+    "description": "Pixel 7 Pro with Google Tensor G2 chip and advanced AI camera.",
+    "specification": [
+      "Google Tensor G2",
+      "6.7-inch OLED",
+      "128GB Storage",
+      "50MP Camera"
+    ],
+    "availability": false,
+    "rating": 4.6
+  },
+  {
+    "product_id": 10,
+    "product_title": "Sony WH-1000XM5",
+    "product_image": "https://i.ibb.co.com/gFHNmSN9/Sony-WH-1000-XM5.jpg",
+    "category": "accessories",
+    "price": "$399",
+    "description": "Noise-cancelling wireless headphones with superior sound.",
+    "specification": [
+      "ANC",
+      "30-hour battery",
+      "Wireless Bluetooth",
+      "Touch Controls"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "product_id": 11,
+    "product_title": "Logitech MX Master 3S",
+    "product_image": "https://i.ibb.co.com/ccSBJLQy/Logitech-MX-Master-3-S.jpg",
+    "category": "accessories",
+    "price": "$99",
+    "description": "Advanced wireless mouse with ergonomic design.",
+    "specification": [
+      "Ergonomic design",
+      "USB-C Rechargeable",
+      "Multi-device support"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "product_id": 12,
+    "product_title": "Apple AirPods Pro (2nd Gen)",
+    "product_image": "https://i.ibb.co.com/S4MzqLsV/Apple-Air-Pods-Pro-2nd-Gen.jpg",
+    "category": "accessories",
+    "price": "$249",
+    "description": "Wireless earbuds with ANC and spatial audio.",
+    "specification": [
+      "ANC",
+      "Spatial Audio",
+      "Wireless Charging"
+    ],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "product_id": 13,
+    "product_title": "Apple Watch Series 8",
+    "product_image": "https://i.ibb.co.com/Df6JhVN0/Apple-Watch-Series-8.jpg",
+    "category": "smartwatch",
+    "price": "$399",
+    "description": "Smartwatch with advanced health tracking and crash detection.",
+    "specification": [
+      "Always-On Display",
+      "Heart Rate Monitor",
+      "GPS + Cellular"
+    ],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "product_id": 14,
+    "product_title": "Samsung Galaxy Watch 5 Pro",
+    "product_image": "https://i.ibb.co.com/hxxP1Sy4/Samsung-Galaxy-Watch-5-Pro.jpg",
+    "category": "smartwatch",
+    "price": "$449",
+    "description": "Durable smartwatch with GPS, fitness tracking, and long battery life.",
+    "specification": [
+      "AMOLED Display",
+      "GPS",
+      "Up to 3-day battery"
+    ],
+    "availability": true,
+    "rating": 4.7
+  }
+]

@@ -1,16 +1,25 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 
 const NavBar = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const Links = <>
-  <li><NavLink>Home</NavLink></li>
+  <li><NavLink to={`/`}>Home</NavLink></li>
   <li><NavLink>Statistics</NavLink></li>
-  <li><NavLink>Dashboard</NavLink></li>
+  <li><NavLink to={`/dashboard` }>Dashboard</NavLink></li>
   </>
   return (
-    <div>
-      <div className="navbar bg-[#9538E2] w-[90%] mx-auto">
+    <div style={{
+      paddingTop: isHome ? "20px" : "0px",
+      backgroundColor: isHome ? "" : "white"
+    }} className=''>
+      <div style={{
+        backgroundColor: isHome ? "#9538E2" : "white",
+        color: isHome ? "white" : "black",  
+        
+      }} className="navbar rounded-t-3xl w-[90%] mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
