@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
+import { addToTheBuyList } from "../../utility/AddToDb";
 
 const ProductDetails = () => {
   const { product_id } = useParams();
@@ -18,6 +19,9 @@ const ProductDetails = () => {
   } = product;
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const handleAddToCart =(id)=>{
+    addToTheBuyList(id);
+  }
 
   return (
     <div className="text-black mx-auto relative h-[900px]">
@@ -45,7 +49,7 @@ const ProductDetails = () => {
                     In stock
                   </span>
                 ) : (
-                  <span className="text-green-400 px-3 py-1 font-bold border rounded-3xl border-green-400 bg-green-100">
+                  <span className="text-red-400 px-3 py-1 font-bold border rounded-3xl border-red-400 bg-red-100">
                     Out of stock
                   </span>
                 )}
@@ -92,7 +96,8 @@ const ProductDetails = () => {
                 class="mask mask-star-2 bg-orange-400"
               />
             </div>
-            <button class="btn w-[40%] border-none bg-[#9538E2] hover:bg-white hover:text-[#9538E2] font-bold rounded-2xl">Add To Cart</button>
+            {/* id pass korte hole onclick e arrow function nite hoy */}
+            <button onClick={() =>handleAddToCart(productId)} class="btn w-[40%] border-none bg-[#9538E2] hover:bg-white hover:text-[#9538E2] font-bold rounded-2xl">Add To Cart</button>
           </div>
         </div>
       </div>

@@ -6,9 +6,9 @@ const NavBar = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const Links = <>
-  <li><NavLink to={`/`}>Home</NavLink></li>
+  <li><NavLink to="/">Home</NavLink></li>
   <li><NavLink>Statistics</NavLink></li>
-  <li><NavLink to={`/dashboard` }>Dashboard</NavLink></li>
+  <li><NavLink to="/dashboard">Dashboard</NavLink></li>
   </>
   return (
     <div style={{
