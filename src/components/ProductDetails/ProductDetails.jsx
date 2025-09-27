@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
-import { addToTheBuyList } from "../../utility/AddToDb";
+import { addToTheBuyList, addToTheWishList } from "../../utility/AddToDb";
+import { FaHeart } from "react-icons/fa";
 
 const ProductDetails = () => {
   const { product_id } = useParams();
@@ -19,9 +20,13 @@ const ProductDetails = () => {
   } = product;
   const location = useLocation();
   const isHome = location.pathname === "/";
-  const handleAddToCart =(id)=>{
+  const handleAddToCart = (id) => {
     addToTheBuyList(id);
-  }
+  };
+  const handleAddToWish = (id) => {
+    addToTheWishList(id);
+  };
+  const [liked, setLiked] = useState(false);
 
   return (
     <div className="text-black mx-auto relative h-[900px]">
@@ -77,7 +82,6 @@ const ProductDetails = () => {
                 type="radio"
                 name="rating-3"
                 class="mask mask-star-2 bg-orange-400"
-                
               />
               <input
                 type="radio"
@@ -97,7 +101,31 @@ const ProductDetails = () => {
               />
             </div>
             {/* id pass korte hole onclick e arrow function nite hoy */}
-            <button onClick={() =>handleAddToCart(productId)} class="btn w-[40%] border-none bg-[#9538E2] hover:bg-white hover:text-[#9538E2] font-bold rounded-2xl">Add To Cart</button>
+            <div className="flex gap-x-5 items-center">
+              <button
+                onClick={() => handleAddToCart(productId)}
+                class="btn w-[40%] border-none bg-[#9538E2] hover:bg-white hover:text-[#9538E2] font-bold rounded-2xl"
+              >
+                Add To Cart
+              </button>
+              <button
+                className="border rounded-full border-gray-400 p-2"
+                onClick={() => {
+                  setLiked(!liked);
+                  handleAddToWish(productId);
+                }}
+              >
+                <FaHeart
+                  className={` text-xl 
+              ${
+                liked
+                  ? "text-red-500 transition-colors duration-200"
+                  : "text-gray-500 transition-colors duration-200"
+              }
+              `}
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>

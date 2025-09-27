@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
+import React from 'react';
+import { removeFromWishList } from '../../utility/AddToDb';
 import { RxCross2 } from "react-icons/rx";
-import { removeFromBuyList } from "../../utility/AddToDb";
 
-
-
-const CartList = ({ jinish , setBuyList}) => {
+const WishList = ({setWishList, jinish}) => {
   const { product_id, product_image, product_title, description, price } = jinish;
-
   return (
     <div className="  mb-10">
       <div className="bg-white p-5 rounded-3xl flex gap-x-10">
@@ -18,11 +15,12 @@ const CartList = ({ jinish , setBuyList}) => {
             <h3 className="font-semibold text-2xl ">{product_title}</h3>
             <p className="text-xl text-[#484747]">{description}</p>
             <p className="text-xl text-[#484747] font-medium">Price: {price}</p>
+            <button className="btn w-[40%] border-none bg-[#9538E2] hover:bg-white hover:text-[#9538E2] font-bold rounded-2xl">Add To Cart</button>
           </div>
           <div className="">
             <button onClick={() =>
-             {removeFromBuyList(product_id);
-              setBuyList((prev)=>prev.filter((items)=>items.product_id !== product_id))
+             {removeFromWishList(product_id);
+              setWishList((prev)=>prev.filter((items)=>items.product_id !== product_id))
              }
              
           } className="border border-red-500 rounded-full p-2">
@@ -35,4 +33,4 @@ const CartList = ({ jinish , setBuyList}) => {
   );
 };
 
-export default CartList;
+export default WishList;

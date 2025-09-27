@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { getBuyList } from "../../utility/AddToDb";
+import { getBuyList, getWishList } from "../../utility/AddToDb";
 import ProductDetails from "../ProductDetails/ProductDetails";
 import Product from "../Product/Product"
 import CartList from "../CartList/CartList";
+import WishList from "../WishList/WishList";
 const Dashboard = () => {
   const [buyList, setBuyList] = useState([]);
+  const [wishList, setWishList] = useState([]);
+
 
   const allProduct = useLoaderData();
   useEffect(() => {
@@ -17,6 +20,17 @@ const Dashboard = () => {
     );
     setBuyList(buyProductList);
   }, []);
+
+  useEffect(()=>{
+    const storedWishList = getWishList();
+    const storedWishListInt = storedWishList.map((id) => parseInt(id));
+
+    const wishProductList = allProduct.filter((prod)=> 
+      storedWishListInt.includes(prod.product_id)
+    );
+    setWishList(wishProductList);
+
+  },[]);
 
   const [activeTab, setActiveTab] = useState("cart");
 
@@ -70,8 +84,8 @@ const Dashboard = () => {
           {/* ekhane props jinish disi karon amar product er vetore item gula ovabei dewa */}
            {
           activeTab === "cart" ? 
-            buyList.map((prods)=><CartList key={prods.product_id} jinish={prods}></CartList>)
-           : "" 
+            buyList.map((prods)=><CartList setBuyList={setBuyList} key={prods.product_id} jinish={prods}></CartList>)
+           : wishList.map((prods)=><WishList setWishList={setWishList} jinish={prods} key={prods.product_id}></WishList>) 
         }
         </div>
       </div>
@@ -79,4 +93,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard ;
