@@ -5,7 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 const WishList = ({setWishList, jinish}) => {
   const { product_id, product_image, product_title, description, price } = jinish;
   return (
-    <div className="  mb-10">
+    <div className="  mb-10 min-h-screen">
       <div className="bg-white p-5 rounded-3xl flex gap-x-10">
         <div className="">
           <img className="h-40 w-50" src={product_image} alt="" />

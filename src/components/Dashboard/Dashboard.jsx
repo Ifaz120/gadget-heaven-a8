@@ -72,7 +72,7 @@ const Dashboard = () => {
         <div>
 
           <div>
-            {activeTab === "cart" ? <h2>Cart</h2> : <h2> Wish list</h2>}
+            {activeTab === "cart" ? <h2 className="text-2xl font-bold pb-10 pt-10">Cart</h2> : <h2 className="text-2xl font-bold pb-10 pt-10"> Wish list</h2>}
           </div>
           <div>
             {/* ekhane price and etc boshbe */}
@@ -83,9 +83,8 @@ const Dashboard = () => {
         <div>
           {/* ekhane props jinish disi karon amar product er vetore item gula ovabei dewa */}
            {
-          activeTab === "cart" ? 
-            buyList.map((prods)=><CartList setBuyList={setBuyList} key={prods.product_id} jinish={prods}></CartList>)
-           : wishList.map((prods)=><WishList setWishList={setWishList} jinish={prods} key={prods.product_id}></WishList>) 
+          activeTab === "cart" ? (buyList.length === 0 ? <p className="text-3xl font-bold my-10">no data available</p> : buyList.map((prods)=><CartList setBuyList={setBuyList} key={prods.product_id} jinish={prods}></CartList>))         
+           : (wishList.length === 0 ? <p className="text-3xl font-bold my-10">no data available</p> : wishList.map((prods)=><WishList setWishList={setWishList} jinish={prods} key={prods.product_id}></WishList>)) 
         }
         </div>
       </div>
