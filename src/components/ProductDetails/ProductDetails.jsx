@@ -3,6 +3,9 @@ import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import { addToTheBuyList, addToTheWishList } from "../../utility/AddToDb";
 import { FaHeart } from "react-icons/fa";
 
+import { render } from "react-dom";
+import ReactStars from 'react-stars'
+
 const ProductDetails = () => {
   const { product_id } = useParams();
   const data = useLoaderData();
@@ -20,12 +23,15 @@ const ProductDetails = () => {
   } = product;
   const location = useLocation();
   const isHome = location.pathname === "/";
+
   const handleAddToCart = (id) => {
     addToTheBuyList(id);
   };
+
   const handleAddToWish = (id) => {
     addToTheWishList(id);
   };
+
   const [liked, setLiked] = useState(false);
 
   return (
@@ -69,42 +75,21 @@ const ProductDetails = () => {
                 </li>
               ))}
             </ol>
-
             <p className="font-bold text-xl">Rating</p>
             <p>{rating}</p>
-            <div class="rating">
-              <input
-                type="radio"
-                name="rating-3"
-                class="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-3"
-                class="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-3"
-                class="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-3"
-                class="mask mask-star-2 bg-orange-400"
-                checked="checked"
-              />
-              <input
-                type="radio"
-                name="rating-3"
-                class="mask mask-star-2 bg-orange-400"
-              />
-            </div>
+            <ReactStars
+              count={5}
+              value={4.5}
+              isHalf={true}
+              edit={false}
+              size={24}
+              activeColor="#FFD700"
+            />
             {/* id pass korte hole onclick e arrow function nite hoy */}
             <div className="flex gap-x-5 items-center">
               <button
                 onClick={() => handleAddToCart(productId)}
-                class="btn w-[40%] border-none bg-[#9538E2] hover:bg-white hover:text-[#9538E2] font-bold rounded-2xl"
+                class="btn w-[40%] border-none bg-[#9538E2] text-white hover:bg-white hover:text-[#9538E2] font-bold rounded-2xl"
               >
                 Add To Cart
               </button>

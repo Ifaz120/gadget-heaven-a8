@@ -5,13 +5,13 @@ import banner from "../../assets/banner.jpg";
 const Banner = () => {
   return (
     <div className="w-[90%] mx-auto relative">
-      <div className="bgBanner rounded-b-3xl min-h-screen relative">
+      <div className="bgBanner rounded-b-3xl h-[550px] relative">
         <div className="hero-content pt-20 text-center flex flex-col relative z-20">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-5xl text-white font-bold">
               Upgrade Your Tech Accessorize with Gadget Heaven Accessories
             </h1>
-            <p className="py-6">
+            <p className="py-6 text-white">
               Explore the latest gadgets that will take your experience to the
               next level. From smart devices to the coolest accessories, we have
               it all!

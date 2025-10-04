@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getBuyList, getWishList } from "../../utility/AddToDb";
 import ProductDetails from "../ProductDetails/ProductDetails";
-import Product from "../Product/Product"
+import Product from "../Product/Product";
 import CartList from "../CartList/CartList";
 import WishList from "../WishList/WishList";
 const Dashboard = () => {
   const [buyList, setBuyList] = useState([]);
   const [wishList, setWishList] = useState([]);
-
+  const [sort, setSort] = useState('');
 
   const allProduct = useLoaderData();
   useEffect(() => {
@@ -21,18 +21,23 @@ const Dashboard = () => {
     setBuyList(buyProductList);
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     const storedWishList = getWishList();
     const storedWishListInt = storedWishList.map((id) => parseInt(id));
 
-    const wishProductList = allProduct.filter((prod)=> 
+    const wishProductList = allProduct.filter((prod) =>
       storedWishListInt.includes(prod.product_id)
     );
     setWishList(wishProductList);
-
-  },[]);
+  }, []);
 
   const [activeTab, setActiveTab] = useState("cart");
+
+  const handleSort =() => {
+    const sortedBuyList = [...buyList].sort((a,b)=> b.price - a.price);
+    setBuyList(sortedBuyList);
+    
+  }
 
   return (
     <div className="">
@@ -55,6 +60,7 @@ const Dashboard = () => {
           >
             Cart
           </button>
+
           <button
             onClick={() => setActiveTab("wishlist")}
             className={`btn font-bold text-base py-2 px-12 rounded-2xl
@@ -70,26 +76,59 @@ const Dashboard = () => {
       </div>
       <div className="text-black w-[90%] mx-auto">
         <div>
-
           <div>
-            {activeTab === "cart" ? <h2 className="text-2xl font-bold pb-10 pt-10">Cart</h2> : <h2 className="text-2xl font-bold pb-10 pt-10"> Wish list</h2>}
+            {activeTab === "cart" ? (
+              <div className="flex justify-between items-center">
+                <div>
+                  <h2 className="text-2xl font-bold pb-10 pt-10">Cart</h2>
+                </div>
+                <div className="flex items-center gap-x-3">
+                  <h3 className="font-bold text-2xl">Total Cost: 1000.00</h3>
+                  <button
+                  onClick={handleSort}
+                  
+                  className="btn text-[#9538E2] font-bold rounded-2xl border border-[#9538E2]">Sort By Price</button>
+                  <button className="btn bg-[#9538E2] font-bold rounded-2xl text-white">Purchase</button>
+                </div>
+              </div>
+            ) : (
+              <h2 className="text-2xl font-bold pb-10 pt-10"> Wish list</h2>
+            )}
           </div>
-          <div>
-            {/* ekhane price and etc boshbe */}
-          </div>
-
+          <div>{/* ekhane price and etc boshbe */}</div>
         </div>
         {/* ekhane tab change er jinish gula thakbe */}
         <div>
           {/* ekhane props jinish disi karon amar product er vetore item gula ovabei dewa */}
-           {
-          activeTab === "cart" ? (buyList.length === 0 ? <p className="text-3xl font-bold my-10">no data available</p> : buyList.map((prods)=><CartList setBuyList={setBuyList} key={prods.product_id} jinish={prods}></CartList>))         
-           : (wishList.length === 0 ? <p className="text-3xl font-bold my-10">no data available</p> : wishList.map((prods)=><WishList setWishList={setWishList} jinish={prods} key={prods.product_id}></WishList>)) 
-        }
+          {activeTab === "cart" ? (
+            buyList.length === 0 ? (
+              <p className="text-3xl font-bold my-10">no data available</p>
+            ) : (
+              buyList.map((prods) => (
+                <CartList
+                  setBuyList={setBuyList}
+                  key={prods.product_id}
+                  jinish={prods}
+                ></CartList>
+              ))
+            )
+          ) : wishList.length === 0 ? (
+            <p className="text-3xl font-bold my-10">no data available</p>
+          ) : (
+            wishList.map((prods) => (
+              <WishList
+                setBuyList={setBuyList}
+                allProduct={allProduct}
+                setWishList={setWishList}
+                jinish={prods}
+                key={prods.product_id}
+              ></WishList>
+            ))
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default Dashboard ;
+export default Dashboard;
