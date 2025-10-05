@@ -12,6 +12,8 @@ import Home from './components/Home/Home.jsx';
 import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,5 +42,6 @@ createRoot(document.getElementById('root')).render(
 
   <StrictMode>
     <RouterProvider router={router} />
+    
   </StrictMode>,
 )

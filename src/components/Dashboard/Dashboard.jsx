@@ -5,6 +5,7 @@ import ProductDetails from "../ProductDetails/ProductDetails";
 import Product from "../Product/Product";
 import CartList from "../CartList/CartList";
 import WishList from "../WishList/WishList";
+import { ToastContainer, toast } from 'react-toastify';
 const Dashboard = () => {
   const [buyList, setBuyList] = useState([]);
   const [wishList, setWishList] = useState([]);
@@ -36,8 +37,12 @@ const Dashboard = () => {
   const handleSort =() => {
     const sortedBuyList = [...buyList].sort((a,b)=> b.price - a.price);
     setBuyList(sortedBuyList);
-    
   }
+  
+  // ekhane calculate korbo kivabe total items er khatay number jog korte hobe
+  const totalCost = buyList.reduce((total,product)=>{
+    return total + parseInt(product.price);
+  },0);
 
   return (
     <div className="">
@@ -83,7 +88,7 @@ const Dashboard = () => {
                   <h2 className="text-2xl font-bold pb-10 pt-10">Cart</h2>
                 </div>
                 <div className="flex items-center gap-x-3">
-                  <h3 className="font-bold text-2xl">Total Cost: 1000.00</h3>
+                  <h3 className="font-bold text-2xl">Total Cost: ${totalCost}</h3>
                   <button
                   onClick={handleSort}
                   

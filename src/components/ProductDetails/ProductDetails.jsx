@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
-import { addToTheBuyList, addToTheWishList } from "../../utility/AddToDb";
+import { addToTheBuyList, addToTheWishList, getBuyList } from "../../utility/AddToDb";
 import { FaHeart } from "react-icons/fa";
-
 import { render } from "react-dom";
 import ReactStars from 'react-stars'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetails = () => {
   const { product_id } = useParams();
@@ -25,7 +26,18 @@ const ProductDetails = () => {
   const isHome = location.pathname === "/";
 
   const handleAddToCart = (id) => {
-    addToTheBuyList(id);
+
+    const existingCart = getBuyList();
+    const isAlreadyInCart = existingCart.includes(id);
+
+    
+    if(isAlreadyInCart){
+      toast.warning("This product is already in your cart!");
+    }
+    else{
+      addToTheBuyList(id);
+      toast.success("This product is added in your cart!");
+    }
   };
 
   const handleAddToWish = (id) => {

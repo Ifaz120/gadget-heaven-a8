@@ -15,7 +15,7 @@ const Product = ({ jinish }) => {
         </figure>
         <div className="card-body ">
           <h2 className="card-title">{product_title}</h2>
-          <p>{price}</p>
+          <p>${price}</p>
           <div className="card-actions">
             <Link to={`/products/${product_id}`}>
             <button className="btn border-none hover:bg-[#9538E2] hover:text-white bg-white text-[#9538E2]">View Details</button>
