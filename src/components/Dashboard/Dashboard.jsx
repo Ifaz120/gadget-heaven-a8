@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { getBuyList, getWishList } from "../../utility/AddToDb";
 import ProductDetails from "../ProductDetails/ProductDetails";
 import Product from "../Product/Product";
 import CartList from "../CartList/CartList";
 import WishList from "../WishList/WishList";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
+
 const Dashboard = () => {
   const [buyList, setBuyList] = useState([]);
   const [wishList, setWishList] = useState([]);
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState("");
+
+  const navigate = useNavigate();
+
+  const handlePurchase = () => {
+    setBuyList([]);
+    localStorage.removeItem("buy-list");
+    document.getElementById("purchase_modal").showModal();
+  };
 
   const allProduct = useLoaderData();
   useEffect(() => {
@@ -34,15 +43,15 @@ const Dashboard = () => {
 
   const [activeTab, setActiveTab] = useState("cart");
 
-  const handleSort =() => {
-    const sortedBuyList = [...buyList].sort((a,b)=> b.price - a.price);
+  const handleSort = () => {
+    const sortedBuyList = [...buyList].sort((a, b) => b.price - a.price);
     setBuyList(sortedBuyList);
-  }
-  
+  };
+
   // ekhane calculate korbo kivabe total items er khatay number jog korte hobe
-  const totalCost = buyList.reduce((total,product)=>{
+  const totalCost = buyList.reduce((total, product) => {
     return total + parseInt(product.price);
-  },0);
+  }, 0);
 
   return (
     <div className="">
@@ -88,12 +97,18 @@ const Dashboard = () => {
                   <h2 className="text-2xl font-bold pb-10 pt-10">Cart</h2>
                 </div>
                 <div className="flex items-center gap-x-3">
-                  <h3 className="font-bold text-2xl">Total Cost: ${totalCost}</h3>
+                  <h3 className="font-bold text-2xl">
+                    Total Cost: ${totalCost}
+                  </h3>
                   <button
-                  onClick={handleSort}
-                  
-                  className="btn text-[#9538E2] font-bold rounded-2xl border border-[#9538E2]">Sort By Price</button>
-                  <button className="btn bg-[#9538E2] font-bold rounded-2xl text-white">Purchase</button>
+                    onClick={handleSort}
+                    className="btn text-[#9538E2] font-bold rounded-2xl border border-[#9538E2]"
+                  >
+                    Sort By Price
+                  </button>
+                  <button onClick={handlePurchase} className="btn bg-[#9538E2] font-bold rounded-2xl text-white">
+                    Purchase
+                  </button>
                 </div>
               </div>
             ) : (
@@ -132,6 +147,20 @@ const Dashboard = () => {
           )}
         </div>
       </div>
+      <dialog id="purchase_modal" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Hello!</h3>
+          <p className="py-4">
+            Press ESC key or click the button below to close
+          </p>
+          <div className="modal-action">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button onClick={()=> navigate('/')} className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };
