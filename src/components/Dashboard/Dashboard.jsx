@@ -106,7 +106,7 @@ const Dashboard = () => {
                   >
                     Sort By Price
                   </button>
-                  <button onClick={handlePurchase} className="btn bg-[#9538E2] font-bold rounded-2xl text-white">
+                  <button disabled={buyList.length === 0} onClick={handlePurchase} className="btn bg-[#9538E2] font-bold rounded-2xl text-white">
                     Purchase
                   </button>
                 </div>
@@ -122,7 +122,9 @@ const Dashboard = () => {
           {/* ekhane props jinish disi karon amar product er vetore item gula ovabei dewa */}
           {activeTab === "cart" ? (
             buyList.length === 0 ? (
-              <p className="text-3xl font-bold my-10">no data available</p>
+              <div className="flex justify-center items-center h-40">
+          <p className="text-3xl font-bold">Add items to the Cart to purchase here</p>
+        </div>
             ) : (
               buyList.map((prods) => (
                 <CartList
@@ -133,7 +135,9 @@ const Dashboard = () => {
               ))
             )
           ) : wishList.length === 0 ? (
-            <p className="text-3xl font-bold my-10">no data available</p>
+           <div className="flex justify-center items-center h-40">
+          <p className="text-3xl font-bold">Add items to the Wishlist to select here</p>
+        </div>
           ) : (
             wishList.map((prods) => (
               <WishList
@@ -149,15 +153,19 @@ const Dashboard = () => {
       </div>
       <dialog id="purchase_modal" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">
-            Press ESC key or click the button below to close
+          <div className=" flex flex-col justify-center items-center">
+            <img src="https://img.icons8.com/?size=100&id=bE5mRAhk65Br&format=png&color=000000" alt="" />
+          <h3 className="font-bold text-2xl">Purchase successful</h3>
+          <p className="py-4 font-bold">
+            Thank you for purchasing from us
           </p>
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button onClick={()=> navigate('/')} className="btn">Close</button>
+              <button onClick={()=> navigate('/')} className="btn rounded-xl bg-gray-300">Close</button>
             </form>
+          </div>
+
           </div>
         </div>
       </dialog>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
-import { addToTheBuyList, addToTheWishList, getBuyList } from "../../utility/AddToDb";
+import { addToTheBuyList, addToTheWishList, getBuyList, getWishList } from "../../utility/AddToDb";
 import { FaHeart } from "react-icons/fa";
 import { render } from "react-dom";
 import ReactStars from 'react-stars'
@@ -41,7 +41,17 @@ const ProductDetails = () => {
   };
 
   const handleAddToWish = (id) => {
-    addToTheWishList(id);
+
+    const existingWist =  getWishList();
+    const isAlreadyInWish = existingWist.includes(id);
+
+    if(isAlreadyInWish){
+      toast.warning("You have already added this item once!");
+    }
+    else{
+      addToTheWishList(id);
+      toast.success("This product is added in your WishList!");
+    }
   };
 
   const [liked, setLiked] = useState(false);

@@ -1,6 +1,8 @@
 import React from 'react';
 import { addToTheBuyList, removeFromWishList } from '../../utility/AddToDb';
 import { RxCross2 } from "react-icons/rx";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const WishList = ({setWishList, jinish, setBuyList,allProduct}) => {
   const { product_id, product_image, product_title, description, price } = jinish;
@@ -14,8 +16,12 @@ const WishList = ({setWishList, jinish, setBuyList,allProduct}) => {
         // ekhon check korbo amar product cart e exist kore kina 
         const exists= prev.some(item=> item.product_id === id);
         if(!exists){
+          toast.success("added");
           return [...prev, productToAdd];
         }
+        else {
+        toast.warning("This product is already in your cart!");
+      }
         return prev;
       })
     }
