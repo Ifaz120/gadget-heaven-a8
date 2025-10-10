@@ -9,11 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from 'react-helmet-async';
 
 const Dashboard = () => {
-  <Helmet>
-        <title>Dashboard | Gadget Heaven</title>
-        <meta name="description" content="View your cart, wishlist, and purchases in the dashboard." />
-        <link rel="canonical" href="https://gadgetheavensa8.netlify.app/dashboard" />
-      </Helmet>
+  
   const [buyList, setBuyList] = useState([]);
   const [wishList, setWishList] = useState([]);
   const [sort, setSort] = useState("");
@@ -73,6 +69,11 @@ const Dashboard = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Dashboard | Gadget Heaven</title>
+        <meta name="description" content="View your cart, wishlist, and purchases in the dashboard." />
+        <link rel="canonical" href="https://gadgetheavensa8.netlify.app/dashboard" />
+      </Helmet>
       <div className="bg-[#9538E2] text-center text-white pt-10 pb-10 flex flex-col gap-y-5">
         <h2 className="text-3xl font-bold">Dashboard</h2>
         <p>

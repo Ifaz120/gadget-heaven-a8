@@ -7,14 +7,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
 
 const Root = () => {
-  <Helmet>
+  
+  return (
+    
+    <div>
+      <Helmet>
           <title>Home | Gadget Heaven</title>
           <meta name="description" content="Explore the new edge-cutting technologies" />
           <link rel="canonical" href="https://gadgetheavensa8.netlify.app/" />
         </Helmet>
-  return (
-    
-    <div>
       <NavBar></NavBar>
       <Outlet></Outlet>
       <Footer></Footer>

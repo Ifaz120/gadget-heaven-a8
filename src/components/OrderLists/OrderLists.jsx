@@ -3,11 +3,7 @@ import Order from '../Order/Order';
 import { Helmet } from 'react-helmet-async';
 
 const OrderLists = () => {
-  <Helmet>
-          <title>Order History | Gadget Heaven</title>
-          <meta name="description" content="View your orders in order history" />
-          <link rel="canonical" href="https://gadgetheavensa8.netlify.app/orders" />
-        </Helmet>
+ 
   const [orders, setOrders] = useState([]);
 
   useEffect(()=>{
@@ -17,6 +13,11 @@ const OrderLists = () => {
   },[])
   return (
     <div>
+       <Helmet>
+          <title>Order History | Gadget Heaven</title>
+          <meta name="description" content="View your orders in order history" />
+          <link rel="canonical" href="https://gadgetheavensa8.netlify.app/orders" />
+        </Helmet>
       <div className="bg-[#9538E2] text-center text-white pt-10 pb-10 flex flex-col gap-y-5">
         <h2 className="text-3xl font-bold mb-20">Order History</h2>
         <p>
