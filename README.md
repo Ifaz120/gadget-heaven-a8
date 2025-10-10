@@ -64,7 +64,7 @@ This project was built using key React concepts, including:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/gadget-heaven-a8.git
+git clone https://github.com/Ifaz120/gadget-heaven-a8.git
 
 # Navigate into the project
 cd gadget-heaven-a8
