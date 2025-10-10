@@ -6,8 +6,14 @@ import Product from "../Product/Product";
 import CartList from "../CartList/CartList";
 import WishList from "../WishList/WishList";
 import { ToastContainer, toast } from "react-toastify";
+import { Helmet } from 'react-helmet-async';
 
 const Dashboard = () => {
+  <Helmet>
+        <title>Dashboard | Gadget Heaven</title>
+        <meta name="description" content="View your cart, wishlist, and purchases in the dashboard." />
+        <link rel="canonical" href="https://gadgetheavensa8.netlify.app/dashboard" />
+      </Helmet>
   const [buyList, setBuyList] = useState([]);
   const [wishList, setWishList] = useState([]);
   const [sort, setSort] = useState("");
@@ -15,6 +21,18 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const handlePurchase = () => {
+
+    const order = {
+      items: buyList,
+      itemCount: buyList.length,
+      totalCost: totalCost
+    }
+    // existing order pete hobe localstorage theke
+    const existingOrders = JSON.parse(localStorage.getItem("order-history"));
+
+    const updatedOrders = [order, ...(existingOrders || [])];
+    localStorage.setItem("order-history",JSON.stringify(updatedOrders));
+
     setBuyList([]);
     localStorage.removeItem("buy-list");
     document.getElementById("purchase_modal").showModal();

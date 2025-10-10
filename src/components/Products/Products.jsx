@@ -30,7 +30,7 @@ const Products = () => {
 
   return (
     <div className="text-black mt-20 w-[90%] mx-auto text-center ">
-      <div>
+      <div className="my-10">
         <h2 className="font-bold text-4xl">Explore Cutting-Edge Gadgets</h2>
       </div>
       <div className="flex gap-x-10">

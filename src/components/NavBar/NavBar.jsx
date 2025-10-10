@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { FaRegHeart } from "react-icons/fa";
+import { IoCartOutline } from "react-icons/io5";
 
 const NavBar = () => {
   const location = useLocation();
@@ -9,6 +10,7 @@ const NavBar = () => {
   <li><NavLink to="/">Home</NavLink></li>
   <li><NavLink to="/statistics">Statistics</NavLink></li>
   <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+  <li><NavLink to="/orders">Order History</NavLink></li>
   </>
   return (
     <div style={{
@@ -49,8 +51,12 @@ const NavBar = () => {
       {Links}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end flex gap-x-3">
+    <Link to="/dashboard">
+    <button className='border text-black p-2 rounded-full bg-white'><IoCartOutline /></button></Link>
+    <Link to="/dashboard"><button className='border text-black p-2 rounded-full bg-white'><FaRegHeart /></button></Link>
+    
+    
   </div>
 </div>
     </div>

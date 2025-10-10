@@ -12,6 +12,8 @@ import Home from './components/Home/Home.jsx';
 import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import Statistics from './components/Statistics/Statistics.jsx';
+import OrderLists from './components/OrderLists/OrderLists.jsx';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 
@@ -38,7 +40,10 @@ const router = createBrowserRouter([
       {
         path: "statistics",
         element: <Statistics></Statistics>,
-
+      },
+      {
+        path: "orders",
+        element: <OrderLists></OrderLists>
       }
     ],
   },
@@ -47,7 +52,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
 
   <StrictMode>
+     <HelmetProvider>
     <RouterProvider router={router} />
+    </HelmetProvider>
     
   </StrictMode>,
 )

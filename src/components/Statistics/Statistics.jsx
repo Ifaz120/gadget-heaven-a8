@@ -1,6 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Statistics = () => {
+  <Helmet>
+            <title>Statistics | Gadget Heaven</title>
+            <meta name="description" content="View new technology's statistics" />
+            <link rel="canonical" href="https://gadgetheavensa8.netlify.app/statistics" />
+          </Helmet>
   return (
     <div>
       <div className="bg-[#9538E2] text-center text-white pt-10 pb-10 flex flex-col gap-y-5">
