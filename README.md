@@ -1,73 +1,76 @@
-🚀 Gadget Heaven
+## 🚀 Gadget Heaven
 
-A modern gadget e-commerce web application built with React, featuring product browsing, wishlist management, cart functionality, and a responsive dashboard.
+A modern gadget e-commerce web application built with **React**, featuring product browsing, wishlist management, cart functionality, and a responsive dashboard.
 
-🌐 Live Website
+---
 
-🔗 Live Demo: https://gadgetheavensa8.netlify.app/
+## 🌐 Live Website
 
-📄 Requirement Document
+🔗 **Live Demo:** [https://gadgetheavensa8.netlify.app/](https://gadgetheavensa8.netlify.app/)
 
-📎 View the full project requirement document here:
+---
 
-https://github.com/ProgrammingHero1/B10-A8-gadget-heaven
+## 📄 Requirement Document
 
+📎 **View the full project requirement document here:**  
+[https://github.com/ProgrammingHero1/B10-A8-gadget-heaven](https://github.com/ProgrammingHero1/B10-A8-gadget-heaven)
 
+---
 
-⚛️ React Fundamentals Used :
+## ⚛️ React Fundamentals Used
 
 This project was built using key React concepts, including:
 
-Components & Props – Reusable UI blocks for modular design.
+- 🧩 **Components & Props** – Reusable UI blocks for modular design.  
+- 🔁 **State Management (`useState`)** – To handle dynamic data like cart and wishlist.  
+- ⚙️ **Side Effects (`useEffect`)** – To load data and sync local storage.  
+- 🧭 **React Router (`useLoaderData`, `useNavigate`)** – For routing and navigation.  
+- 🎛️ **Conditional Rendering** – To toggle between tabs and display content dynamically.  
+- 🖱️ **Event Handling** – To manage user interactions such as add/remove from cart.  
+- 🧠 **Helmet (`react-helmet-async`)** – For dynamic SEO titles and meta tags.
 
-State Management (useState) – To handle dynamic data like cart and wishlist.
+---
 
-Side Effects (useEffect) – To load data and sync local storage.
+## 💾 Data Handling & Management
 
-React Router (useLoaderData, useNavigate) – For routing and navigation.
+- 💿 **Local Storage:** Used for storing cart, wishlist, and order history data persistently.  
+- ⚡ **Loader Function (React Router):** Loads product data efficiently.  
+- 🧰 **Utility Functions:** Custom helper methods in `/utility/AddToDb.js` for managing stored data.
 
-Conditional Rendering – To toggle between tabs and display content dynamically.
+---
 
-Event Handling – To manage user interactions such as add/remove from cart.
+## 🌟 Top 5 Features
 
-Helmet (react-helmet-async) – For dynamic SEO titles and meta tags.
+1. 🛒 **Add to Cart & Wishlist** – Save your favorite gadgets for later or purchase them directly.  
+2. 💰 **Dynamic Dashboard** – View and manage your cart and wishlist in one place.  
+3. 🔀 **Sort by Price** – Sort your cart items by highest price instantly.  
+4. ✅ **Purchase System** – Confirm and record purchases to local storage.  
+5. 🧠 **Persistent Storage** – Data remains even after page reloads using `localStorage`.
 
+---
 
+## 🧩 Tech Stack
 
-💾 Data Handling & Management : 
+- ⚛️ **React.js (Vite)**  
+- 💅 **Tailwind CSS**  
+- 🧭 **React Router DOM**  
+- 🧠 **React Helmet Async**  
+- 🔔 **React Toastify**  
+- ☁️ **Netlify (Deployment)**
 
-Local Storage: Used for storing cart, wishlist, and order history data persistently.
+---
 
-Loader Function (React Router): Used to load product data efficiently.
+## 🧠 How to Run Locally
 
-Utility Functions: Created custom helper methods in /utility/AddToDb.js for managing stored data.
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/gadget-heaven-a8.git
 
+# Navigate into the project
+cd gadget-heaven-a8
 
+# Install dependencies
+npm install
 
-🌟 Top 5 Features : 
-
-1)🛒 Add to Cart & Wishlist – Save your favorite gadgets for later or purchase them directly.
-
-2)💰 Dynamic Dashboard – View and manage your cart and wishlist in one place.
-
-3)🔀 Sort by Price – Sort your cart items by highest price instantly.
-
-4)✅ Purchase System – Confirm and record purchases to local storage.
-
-5)🧠 Persistent Storage – Data remains even after page reloads using localStorage.
-
-
-
-🧩 Tech Stack: 
-
-React.js (Vite)
-
-Tailwind CSS
-
-React Router DOM
-
-React Helmet Async
-
-React Toastify
-
-Netlify (Deployment)
+# Run the development server
+npm run dev
